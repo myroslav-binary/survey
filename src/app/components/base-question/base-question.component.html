@@ -1,0 +1,20 @@
+<div *ngIf="question">
+  <p-card [header]="question.question">
+    <div [ngSwitch]="question.type">
+      <choice-list-question
+        *ngSwitchCase="QuestionType.ChoiceList"
+        [question]="$any(question)"
+        [form]="form"
+      >
+      </choice-list-question>
+      <text-question
+        *ngSwitchCase="QuestionType.Text"
+        [question]="$any(question)"
+        [form]="form"
+      >
+      </text-question>
+      <div *ngSwitchDefault>Incorrect question type</div>
+    </div>
+    <small [hidden]="form.valid || form.untouched" style="color: #d95252;">Not a valid</small>
+  </p-card>
+</div>

@@ -1,0 +1,14 @@
+<div class="flex flex-column gap-3">
+  <div
+    *ngFor="let option of question.options; index as i"
+    class="flex align-items-center"
+  >
+    <p-radioButton
+      [name]="option.name"
+      [value]="option.value"
+      [formControl]="$any(form)"
+      [inputId]="option.value"
+    ></p-radioButton>
+    <label [for]="option.value" class="ml-2">{{ option.name }}</label>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<div>
+  <div class="flex flex-column gap-4">
+    <base-question [question]="currentQustion" [form]="form.controls[currentQustion.valueKey]"> </base-question>
+    <div class="flex justify-content-between">
+      <div class="flex gap-3">
+        <p-button label="Previous" [disabled]="isFirstQuestion" (onClick)="previousQuestion()"></p-button>
+        <p-button label="Next" [disabled]="isLastQuestion || form.controls[currentQustion.valueKey].invalid" (onClick)="nextQuestion()"></p-button>
+      </div>
+      <p-button label="Submit" styleClass="p-button-success" (onClick)="onSubmit()" [disabled]="form.invalid"></p-button>
+    </div>
+  </div>
+</div>
